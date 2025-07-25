@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pump RUL Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Pump RUL Predictor</h1>
+        <p class="subtitle">Enter sensor readings to predict remaining useful life.</p>
+
+        <form method="POST" action="/predict">
+            <div class="form-grid">
+                {% for name in feature_names %}
+                    <div class="form-group">
+                        <label for="{{ name }}">{{ feature_labels[name] if feature_labels[name] else name.replace('_', ' ').title() }}</label>
+                        <input type="text" name="{{ name }}" value="{{ form_values[name] if form_values and name in form_values else '' }}" required>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="prediction-box">
+                {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
