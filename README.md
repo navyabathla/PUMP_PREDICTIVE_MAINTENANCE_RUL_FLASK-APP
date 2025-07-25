@@ -22,6 +22,11 @@ The dataset includes **sensor readings** such as pressure, temperature, vibratio
 Datadet link - https://www.kaggle.com/datasets/anseldsouza/water-pump-rul-predictive-maintenance
 
 ---
+## Model Training
+The complete data preprocessing and model training code can be found in 
+[pump_maintenance_prediction.ipynb] & [pump_maintenance_prediction_rul.ipynb]
+---
+
 
 ## Model & Results
 After testing multiple ML models, **Random Forest** achieved the best results:
